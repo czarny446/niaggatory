@@ -1,0 +1,106 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+class Punkt
+{
+   float x,y;
+   string nazwa;
+
+public:
+   void wpisz()
+   {
+   	cout<<"Podaj wspolrzendna x punktu: ";
+   	cin>>x;
+   	cout<<"Podaj wspolrzendna y punktu: ";
+   	cin>>y;
+   	
+   }
+   void wyswietl()
+   {
+      cout<<nazwa<<"("<<x<<","<<y<<")"<<endl;
+   }
+   Punkt(string n="S", float a=0, float b=0)
+   {
+      nazwa = n;
+      x = a;
+      y = b;
+   }
+};
+
+class Kolo :public Punkt //klasa Kolo dziedziczy publicznie z klasy Punkt
+{	
+protected:
+ 	float r;
+    string nazwa;
+
+public:
+
+	void wpisz()
+   {
+   	cout<<"Podaj promien: "<<endl;
+   	cin>>r;
+   	Punkt::wpisz();
+   	cout<<"Podaj nazwe: ";
+   	cin>> nazwa;
+   }
+   void wyswietl()
+   {
+      cout<<"Kolo o nazwie: "<<nazwa<<endl;
+      cout<<"Srodek kola: "<<endl;
+      Punkt::wyswietl();
+      cout<<"Promien: "<<r<<endl;
+      cout<<"Pole kola : "<<M_PI*r*r<<endl;
+   }
+
+   Kolo(string nk="Kolko", string np="S", float a=0, float b=0, float pr=1)
+   :Punkt(np,a,b)
+   {
+      nazwa = nk;
+      r = pr;
+   }
+};
+   
+class Kula :public Kolo //klasa Kula dziedziczy publicznie z klasy Kolo i Punkt
+{
+
+	
+public:
+	void wpisz()
+	{
+		Kolo::wpisz();
+	}
+	void wyswietl()
+	{
+	  cout<<"Kula o nazwie: "<<nazwa<<endl;
+      cout<<"Srodek kuli: "<<endl;
+      Punkt::wyswietl();
+      cout<<"Promien: "<<r<<endl;
+      cout<<"Pole kuli: "<<4*M_PI*r*r<<endl;
+      cout<<"Objetosc kuli: "<<M_PI*r*r*r*4/3<<endl;
+   }
+   
+   Kula(string nk="Kulka", string np="s", float a=0,float b=0,float pr=1)
+   
+   {
+   	 nazwa= nk;
+   	 r=pr;
+   	
+   }
+	
+	
+};
+
+int main()
+{
+  	Kolo k1;
+    k1.wpisz();
+    k1.wyswietl();
+    
+    Kula ku1;
+    ku1.wpisz();
+    ku1.wyswietl();
+
+    return 0;
+}
