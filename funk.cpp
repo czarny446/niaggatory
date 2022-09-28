@@ -9,18 +9,18 @@ int najwieksza(int l1,int l2,int l3)
 
 	if((l1>l2)&&(l1>l3))
 	{
-	return cout<<l1<<" jest najwieksze"<<endl;
+	return l1;
 	
 		
 	}
 	else if((l2>l1)&&(l2>l3))
 	{
-	return	cout<<l2<<" jest najwieksze"<<endl;
+	return	l2;
 		
 	}
 		else if((l3>l1)&&(l3>l2))
 	{
-	return	cout<<l3<<" jest najwieksze"<<endl;
+	return	l3;
 	
 	}
 	
@@ -40,8 +40,7 @@ int main()
 	cout<<"Podaj 3 liczbe: "<<endl;
 	cin>>z;
 	
-	najwieksza(x,y,z);
-	cout<<najwieksza;
+	cout<<najwieksza(x,y,z);
 	
 	
 	
